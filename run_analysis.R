@@ -37,11 +37,17 @@ data <- rbind(traindata, testdata)
 ## columns to extract
 features <- read.table("./features.txt")
 resultsnames <- make.names(features$V2)
-names(data) <- c("Volunteer", "Activity", resultsnames2)
+names(data) <- c("Volunteer", "Activity", resultsnames)
 
 ## Subset the data to show only mean and std results for each measurement
+
+##Install and load dplr package
+install.packages("dplyr")
+library(dplyr)
+
+## Subset the data
 data <- data[ , unique(colnames(data))]
-data2 <- select(data, Volunteers, Activity, contains("mean"), contains("std"))
+data2 <- select(data, Volunteer, Activity, contains("mean"), contains("std"))
 
 ## Uses descriptive activity names to name the activities in the data set
 ActivityTable <- read.table("./activity_labels.txt")

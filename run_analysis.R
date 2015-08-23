@@ -57,11 +57,11 @@ data4 <- select(data3, Volunteer, ActivityName, 4:89)
 
 ## From the data set in step 4, creates a second, independent tidy data set with 
 ## the average of each variable for each activity and each subject.
-tidy2 <- group_by(data4, Volunteers, ActivityName)
+tidy2 <- group_by(data4, Volunteer, ActivityName)
 tidyfinal <- summarise_each(tidy2, funs(mean))
 
 ## Create a .txt file of the grouped data
-write.table(tidyfinal, file ="./Final_tidydata.txt", append = TRUE, row.names = FALSE)
+write.table(tidyfinal, file ="./Final_tidydata.txt", append = FALSE, row.names = FALSE)
 
 ## Verify the results
 GCData_project <- read.table("./Final_tidydata.txt", header = TRUE)

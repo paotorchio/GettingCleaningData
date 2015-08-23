@@ -53,7 +53,7 @@ data2 <- select(data, Volunteer, Activity, contains("mean"), contains("std"))
 ActivityTable <- read.table("./activity_labels.txt")
 names(ActivityTable) <- c("Activity","ActivityName")
 data3 <- merge(ActivityTable, data2, by = "Activity")
-data4 <- select(data3, Volunteers, ActivityName, 4:89)
+data4 <- select(data3, Volunteer, ActivityName, 4:89)
 
 ## From the data set in step 4, creates a second, independent tidy data set with 
 ## the average of each variable for each activity and each subject.

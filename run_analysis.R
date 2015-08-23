@@ -52,7 +52,7 @@ data2 <- select(data, Volunteer, Activity, contains("mean"), contains("std"))
 ## Uses descriptive activity names to name the activities in the data set
 ActivityTable <- read.table("./activity_labels.txt")
 names(ActivityTable) <- c("Activity","ActivityName")
-data3 <- merge(ActivityTable, data2, by = "Activiy")
+data3 <- merge(ActivityTable, data2, by = "Activity")
 data4 <- select(data3, Volunteers, ActivityName, 4:89)
 
 ## From the data set in step 4, creates a second, independent tidy data set with 
